@@ -10,7 +10,12 @@ public class SmallScaleDao {
     SmallScaleRepository smallScaleRepository;
 
     public void smallScaleRegister(SmallScale smallScale){
+
         smallScaleRepository.save(smallScale);
     }
 
+    public SmallScale getSmallScaleById(String smallScaleId) {
+        SmallScale smallScale = smallScaleRepository.findById(smallScaleId).orElse(new SmallScale());
+        return  smallScale ;
+    }
 }

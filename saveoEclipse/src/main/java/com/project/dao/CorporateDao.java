@@ -16,9 +16,9 @@ public class CorporateDao {
 		
 	}
 
-	
-	
-	
-	
 
+	public Corporate getCorporateById(String corporateId) {
+		Corporate corporate = corporateRepository.findById(corporateId).orElse(new Corporate());
+		return  corporate;
+	}
 }

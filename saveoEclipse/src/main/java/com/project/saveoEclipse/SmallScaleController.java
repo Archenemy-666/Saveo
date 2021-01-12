@@ -23,7 +23,8 @@ public class SmallScaleController{
     @RequestMapping("/getSmallScaleDetails/{smallScaleId}/{password}")
     public SmallScale smallScaleLogin(@PathVariable("smallScaleId") String smallScaleId , @PathVariable("password") String password){
         SmallScale smallScale = smallScaleDao.getSmallScaleById(smallScaleId);
-        if(smallScale.getPassword().equalsIgnoreCase(password)){
+        //if(smallScale.getPassword().equalsIgnoreCase(password)) wont work as i does not generate a value hence error in string if wrong loginId at front-end
+        if(password.equalsIgnoreCase(smallScale.getPassword())){
             return smallScale;
         }
         return null;
